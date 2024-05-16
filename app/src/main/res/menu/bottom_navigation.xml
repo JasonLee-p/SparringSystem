@@ -5,9 +5,13 @@
         android:title="主页"
         android:icon="@drawable/ic_home" />
     <item
+        android:id="@+id/navigation_tuning"
+        android:title="调音"
+        android:icon="@drawable/ic_music" />
+    <item
         android:id="@+id/navigation_music"
         android:title="音乐"
-        android:icon="@drawable/ic_music" />
+        android:icon="@drawable/ic_player" />
     <item
         android:id="@+id/navigation_notifications"
         android:title="消息"

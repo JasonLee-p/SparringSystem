@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">SparringSystem</string>
+    <string name="app_name">弦轨智能陪练系统</string>
+    <string name="practice_title">曲库练习</string>
+    <string name="tuner_title">调音器</string>
+    <string name="navigation_title">消息列表</string>
+    <string name="home_btn">首页</string>
+    <string name="practice_btn">练习</string>
+    <string name="tuner_btn">调音</string>
+    <string name="navigation_btn">消息</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
