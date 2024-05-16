@@ -87,6 +87,8 @@ public class TuningFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 导航到调音界面
+                //
+                //
                 // 使用FragmentManager加载新的Fragment或启动新的Activity
             }
         });
