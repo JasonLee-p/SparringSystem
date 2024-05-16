@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_navigation"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/bg_color1"
+        android:background="@color/bg_color2"
         android:elevation="4dp"
         android:title="@string/navigation_title"
         app:navigationIcon="@drawable/ic_notifications" />

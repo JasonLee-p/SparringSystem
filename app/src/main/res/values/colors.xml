@@ -2,6 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_color0">#FFD3D3D3</color>
-    <color name="bg_color1">#99CCEE</color>
+    <color name="bg_color0">#FFFFFFFF</color>
+    <color name="bg_color1">#FFCCDDEE</color>
+    <color name="bg_color2">#FFAADEFF</color>
+    <color name="fg_color0">#FF000000</color>
+    <color name="fg_color1">#FF0000FF</color>
+    <color name="light_gray">#FFCCCCCC</color>
+    <color name="light_red">#FFFFAAAA</color>
+    <color name="light_green">#FFAAFFAA</color>
+    <color name="light_blue">#FFAAAAFF</color>
+    <color name="dark_gray">#FF666666</color>
+    <color name="dark_red">#FF880000</color>
+    <color name="dark_green">#FF008800</color>
+    <color name="dark_blue">#FF000088</color>
 </resources>

@@ -3,6 +3,10 @@
     <style name="Base.Theme.SparringSystem" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorBackground">@color/bg_color0</item>
+        <item name="android:colorForeground">@color/fg_color0</item>
+        <item name="android:colorAccent">@color/fg_color1</item>
+        <item name="android:colorPrimary">@color/bg_color1</item>
     </style>
 
     <style name="Theme.SparringSystem" parent="Base.Theme.SparringSystem" />
