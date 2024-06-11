@@ -6,75 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".PracticeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_practice"
+    <FrameLayout
+        android:id="@+id/practice_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/bg_color2"
-        android:elevation="4dp"
-        android:title="@string/practice_title"
-        app:navigationIcon="@drawable/ic_player" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_gravity="center">
-
-        <SeekBar
-            android:id="@+id/seekBar"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
-
-            <Button
-                android:id="@+id/button_play"
-                style="@style/ButtonStyle0"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:text="播放" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <Button
-                android:id="@+id/button_pause"
-                style="@style/ButtonStyle0"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:text="暂停" />
+                <!-- Search bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-            <Button
-                android:id="@+id/button_replay"
-                style="@style/ButtonStyle0"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:text="重播" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_search" />
 
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="00:00/00:00"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:hint="搜索"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:textColorHint="@color/fg_color1" />
+                </LinearLayout>
 
-        </LinearLayout>
+                <!-- Recommendations -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="为您推荐"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="180dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/rounded_corners"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/r1" />
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="180dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/rounded_corners"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/r2" />
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="180dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/rounded_corners"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/r3" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Categories -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="曲目分类"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:id="@+id/grid_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_color1"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:rowCount="4">
+
+                    <!-- Category Items will be dynamically added here -->
+
+                </GridLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
 
 </FrameLayout>

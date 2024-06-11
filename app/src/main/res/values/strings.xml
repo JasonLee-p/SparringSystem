@@ -8,4 +8,6 @@
     <string name="tuner_btn">调音</string>
     <string name="navigation_btn">消息</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>
