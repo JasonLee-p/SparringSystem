@@ -7,13 +7,13 @@
     <item
         android:id="@+id/navigation_tuning"
         android:title="调音"
-        android:icon="@drawable/ic_music" />
+        android:icon="@drawable/ic_utils" />
     <item
         android:id="@+id/navigation_music"
         android:title="音乐"
         android:icon="@drawable/ic_player" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:title="消息"
-        android:icon="@drawable/ic_notifications" />
+        android:id="@+id/navigation_user"
+        android:title="用户"
+        android:icon="@drawable/ic_user" />
 </menu>

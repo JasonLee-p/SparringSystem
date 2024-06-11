@@ -3,10 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_color0">#FFFFFFFF</color>
-    <color name="bg_color1">#FFCCDDEE</color>
-    <color name="bg_color2">#FFAADEFF</color>
+    <color name="bg_color1">#FFDE96</color>
+    <color name="bg_color2">#FFFEBB01</color>
     <color name="fg_color0">#FF000000</color>
-    <color name="fg_color1">#FF0000FF</color>
+    <color name="fg_color1">#FF4C2605</color>
     <color name="light_gray">#FFCCCCCC</color>
     <color name="light_red">#FFFFAAAA</color>
     <color name="light_green">#FFAAFFAA</color>
