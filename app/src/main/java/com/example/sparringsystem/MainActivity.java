@@ -25,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new HomeFragment());
     }
 
+    @Override
+    public void onBackPressed() {
+        // 如果在HomeFragment中按下返回键，退出应用
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            finish();
+        }
+        super.onBackPressed();
+    }
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener =
             item -> {
                 int active_item = item.getItemId();
@@ -51,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
-        transaction.addToBackStack(null);
+        if (fragment instanceof HomeFragment) {
+            transaction.addToBackStack(null);
+        }
         transaction.commit();
     }
 }
