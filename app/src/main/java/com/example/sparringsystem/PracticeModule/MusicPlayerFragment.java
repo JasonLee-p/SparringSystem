@@ -201,7 +201,13 @@ public class MusicPlayerFragment extends Fragment {
     private void updateSongInfo(Song song) {
         songTitle.setText(song.getTitle());
         songArtist.setText(song.getArtist());
-        albumImage.setImageResource(song.getImageResourceId());
+        int img_id = song.getImageResourceId();
+        if (img_id != 0) {
+            albumImage.setImageResource(img_id);
+        }
+        else {
+            albumImage.setImageResource(R.drawable.unknown_album);
+        }
         lyricsView.setText("无歌词"); // 这里可以更新歌词
     }
 

@@ -4,44 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="bottom|center"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".PracticeModule.MusicPlayerFragment"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".PracticeModule.MusicPlayerFragment">
 
     <!-- Song Information -->
     <TextView
         android:id="@+id/song_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="未知歌曲"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="16dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/song_artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="未知艺术家"
-        android:textSize="18sp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
-        android:layout_marginTop="4dp"/>
+        android:text="未知艺术家"
+        android:textSize="18sp" />
 
     <!-- Album Image -->
     <androidx.cardview.widget.CardView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
         android:layout_marginTop="16dp"
-        app:cardCornerRadius="25dp">
+        app:cardCornerRadius="35dp">
 
         <ImageView
             android:id="@+id/album_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/unknown_album"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/unknown_album" />
     </androidx.cardview.widget.CardView>
 
     <!-- SeekBar and Time -->
@@ -49,14 +49,14 @@
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="8dp"
-        android:layout_gravity="center">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/current_time"
@@ -80,10 +80,10 @@
         android:id="@+id/lyrics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="无歌词"
-        android:textSize="14sp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:layout_marginTop="16dp"/>
+        android:text="无歌词"
+        android:textSize="14sp" />
 
     <!-- Control Buttons -->
     <LinearLayout
