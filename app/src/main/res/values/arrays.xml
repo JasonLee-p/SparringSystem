@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_items">
+        <item>我的收藏</item>
+        <item>检查更新</item>
+        <item>意见反馈</item>
+        <item>用户协议</item>
+        <item>隐私政策</item>
+        <item>关于我们</item>
+    </string-array>
+</resources>
+
