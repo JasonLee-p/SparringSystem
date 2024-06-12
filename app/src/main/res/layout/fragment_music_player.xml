@@ -100,6 +100,7 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Previous"
+            android:paddingBottom="2dp"
             android:src="@drawable/ic_previous"
             app:tint="@android:color/black" />
 
@@ -122,6 +123,7 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Next"
+            android:paddingTop="2dp"
             android:src="@drawable/ic_next"
             app:tint="@android:color/black" />
     </LinearLayout>
