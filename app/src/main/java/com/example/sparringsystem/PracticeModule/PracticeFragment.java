@@ -1,4 +1,4 @@
-package com.example.sparringsystem;
+package com.example.sparringsystem.PracticeModule;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.sparringsystem.MainActivity;
+import com.example.sparringsystem.R;
 import com.example.sparringsystem.customView.CategoryItemView;
 
 public class PracticeFragment extends Fragment {
@@ -88,7 +90,7 @@ public class PracticeFragment extends Fragment {
             layoutParams.width = 0;
             layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             layoutParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
-            layoutParams.setMargins(15, 15, 15, 15);
+            layoutParams.setMargins(30, 20, 30, 20);
             categoryItemView.setLayoutParams(layoutParams);
             gridLayout.addView(categoryItemView);
         }

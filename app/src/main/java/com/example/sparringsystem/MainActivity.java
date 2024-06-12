@@ -6,13 +6,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.sparringsystem.AudioUtilsModule.AudioUtilsFragment;
+import com.example.sparringsystem.PracticeModule.PracticeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
     // 子界面
     private HomeFragment homeFragment;
-    private TuningFragment tuningFragment;
+    private AudioUtilsFragment tuningFragment;
     private PracticeFragment practiceFragment;
     private UserFragment userFragment;
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // 初始化子界面
         homeFragment = new HomeFragment();
-        tuningFragment = new TuningFragment();
+        tuningFragment = new AudioUtilsFragment();
         practiceFragment = new PracticeFragment();
         userFragment = new UserFragment();
 

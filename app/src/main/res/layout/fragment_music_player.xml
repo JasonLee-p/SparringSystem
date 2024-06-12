@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MusicPlayerFragment"
+    tools:context=".PracticeModule.MusicPlayerFragment"
     android:padding="16dp">
 
     <!-- Song Information -->
@@ -30,13 +30,19 @@
         android:layout_marginTop="4dp"/>
 
     <!-- Album Image -->
-    <ImageView
-        android:id="@+id/album_image"
+    <androidx.cardview.widget.CardView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/unknown_album"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="25dp">
+
+        <ImageView
+            android:id="@+id/album_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/unknown_album"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
 
     <!-- SeekBar and Time -->
     <SeekBar

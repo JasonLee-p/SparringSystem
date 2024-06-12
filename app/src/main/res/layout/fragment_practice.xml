@@ -4,12 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PracticeFragment">
+    tools:context=".PracticeModule.PracticeFragment">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/practice_fragment_container"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:hint="搜索"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textColorHint="@color/fg_color1" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -19,39 +61,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Search bar -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_search" />
-
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:hint="搜索"
-                        android:inputType="text"
-                        android:minHeight="48dp"
-                        android:padding="8dp"
-                        android:textColorHint="@color/fg_color1" />
-                </LinearLayout>
+                android:padding="0dp">
 
                 <!-- Recommendations -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingTop="0dp"
                     android:text="为您推荐"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -60,6 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
                     android:scrollbars="none">
 
                     <LinearLayout
@@ -67,32 +87,44 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="180dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:background="@drawable/rounded_corners"
-                            android:clipToOutline="true"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/r1" />
+                            app:cardCornerRadius="16dp">
 
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="180dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/rounded_corners"
-                            android:clipToOutline="true"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/r2" />
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/r1" />
+                        </androidx.cardview.widget.CardView>
 
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="180dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:background="@drawable/rounded_corners"
-                            android:clipToOutline="true"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/r3" />
+                            app:cardCornerRadius="16dp">
+
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/r2" />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="16dp">
+
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="180dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/r3" />
+                        </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -100,27 +132,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="18dp"
                     android:layout_marginBottom="8dp"
+                    android:paddingLeft="18dp"
                     android:text="曲目分类"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <GridLayout
-                    android:id="@+id/grid_layout"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/bg_color1"
-                    android:columnCount="2"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:rowCount="4">
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="0dp"
+                    app:cardCornerRadius="36dp">
 
-                    <!-- Category Items will be dynamically added here -->
+                    <GridLayout
+                        android:id="@+id/grid_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg_color1"
+                        android:columnCount="2"
+                        android:orientation="horizontal"
+                        android:paddingLeft="26dp"
+                        android:paddingTop="26dp"
+                        android:paddingRight="26dp"
+                        android:paddingBottom="26dp"
+                        android:rowCount="4">
 
-                </GridLayout>
+                        <!-- Category Items will be dynamically added here -->
+
+                    </GridLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
         </ScrollView>
-    </FrameLayout>
+    </LinearLayout>
 
 </FrameLayout>

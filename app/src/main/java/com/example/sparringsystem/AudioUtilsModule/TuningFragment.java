@@ -1,15 +1,14 @@
-package com.example.sparringsystem;
+package com.example.sparringsystem.AudioUtilsModule;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import com.example.sparringsystem.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,37 +61,6 @@ public class TuningFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_tuning, container, false);
-
-//        // 设置顶部栏的回退按钮
-//        AppCompatActivity activity = (AppCompatActivity) getActivity();
-//        if (activity != null) {
-//            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        }
-
-        // 按钮点击事件
-        Button spectrumButton = view.findViewById(R.id.spectrumButton);
-        spectrumButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 导航到频谱仪界面
-                // 日志
-                Log.i("TuningFragment", "打开频谱仪");
-                // 使用FragmentManager加载新的Fragment或启动新的Activity
-            }
-        });
-
-        Button tuningButton = view.findViewById(R.id.tuningButton);
-        tuningButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 导航到调音界面
-                //
-                //
-                // 使用FragmentManager加载新的Fragment或启动新的Activity
-            }
-        });
-
-        return view;
+        return inflater.inflate(R.layout.fragment_tuning, container, false);
     }
 }

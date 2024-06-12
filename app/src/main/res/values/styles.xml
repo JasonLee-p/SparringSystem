@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ButtonStyle0" parent="Widget.AppCompat.Button">
-        <item name="android:layout_width">match_parent</item>
+    <style name="ButtonStyle0">
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/bg_color1</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:radius">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:backgroundTint">@color/bg_color2</item>
+        <item name="android:textColor">@color/fg_color1</item>
+        <item name="android:textSize">20sp</item>
     </style>
-
 </resources>

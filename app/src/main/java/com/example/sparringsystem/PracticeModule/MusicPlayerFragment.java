@@ -1,4 +1,4 @@
-package com.example.sparringsystem;
+package com.example.sparringsystem.PracticeModule;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.sparringsystem.R;
 
 import java.util.concurrent.TimeUnit;
 
