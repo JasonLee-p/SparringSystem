@@ -67,7 +67,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="个性推荐"
                 android:textAlignment="textStart"
-                android:textColor="#403131"
+                android:textColor="@color/fg_color1"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-black"
                             android:text="每日推荐"
-                            android:textColor="#635858"
+                            android:textColor="@color/dark_gray"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -111,7 +111,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="符合你口味的新鲜好歌"
-                            android:textColor="#757575"
+                            android:textColor="@color/dark_gray"
                             android:textSize="15sp" />
 
                     </LinearLayout>

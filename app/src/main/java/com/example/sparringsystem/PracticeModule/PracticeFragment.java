@@ -1,7 +1,6 @@
 package com.example.sparringsystem.PracticeModule;
 
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.sparringsystem.ImageSource;
-import com.example.sparringsystem.MainActivity;
 import com.example.sparringsystem.R;
-import com.example.sparringsystem.customView.CategoryItemView;
+import com.example.sparringsystem.customView.CategoryItemViewSingleLine;
 import com.example.sparringsystem.customView.CustomCardView;
 
 import java.util.List;
@@ -31,11 +29,6 @@ public class PracticeFragment extends Fragment {
     // 推荐项
     private List<RecommendationItem> recommendationItems;
 
-    //    private MusicPlayer musicPlayer;
-    //    private Handler handler = new Handler();
-    //    private SeekBar seekBar;
-    //    private TextView textTime;
-    //    private Runnable updateSeekBar;
 
     public PracticeFragment() {
         // Required empty public constructor
@@ -109,6 +102,7 @@ public class PracticeFragment extends Fragment {
                 }
             });
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
+            // 布局管理
             layoutParams.weight = 1;
             layoutParams.setMargins(0, 20, 30, 20);
             recommendationItemView.setLayoutParams(layoutParams);
@@ -122,10 +116,10 @@ public class PracticeFragment extends Fragment {
         int[] categoryImages = {R.drawable.i_guitar, R.drawable.i_pipa, R.drawable.i_guitar2, R.drawable.i_erhu};
 
         for (int i = 0; i < categoryNames.length; i++) {
-            CategoryItemView categoryItemView = new CategoryItemView(getContext());
+            CategoryItemViewSingleLine categoryItemViewSingleLine = new CategoryItemViewSingleLine(getContext());
             Drawable image = ContextCompat.getDrawable(getContext(), categoryImages[i]);
             String name = categoryNames[i];
-            categoryItemView.setCategory(name, image, new View.OnClickListener() {
+            categoryItemViewSingleLine.setCategory(name, image, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     navigationToMusicPlayerFragment(name);
@@ -136,8 +130,8 @@ public class PracticeFragment extends Fragment {
             layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             layoutParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
             layoutParams.setMargins(30, 20, 30, 20);
-            categoryItemView.setLayoutParams(layoutParams);
-            gridLayout.addView(categoryItemView);
+            categoryItemViewSingleLine.setLayoutParams(layoutParams);
+            gridLayout.addView(categoryItemViewSingleLine);
         }
     }
 
