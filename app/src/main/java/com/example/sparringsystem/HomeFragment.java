@@ -1,12 +1,18 @@
 package com.example.sparringsystem;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.example.sparringsystem.customView.CategoryItemViewDoubleLine;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +66,42 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Adding category items to the grid layout
+        LinearLayout personalRecommendationLayout = view.findViewById(R.id.linearlayout_personalRecommendation);
+        addPersonalRecommendationCategoryItems(personalRecommendationLayout);
+    }
+
+    public void addPersonalRecommendationCategoryItems(LinearLayout linearLayout) {
+        String[] line1Text = {"每日推荐", "私人漫游", "民谣专场", "舒缓轻音"};
+        String[] line2Text = {"符合你口味的新鲜好歌", "多种模式随心播放", "进入民谣的浪漫世界", "放松心情"};
+        ImageSource[] imageSources = {
+            new ImageSource(R.drawable.personal_r_1, "每日推荐"),
+            new ImageSource(R.drawable.personal_r_2, "私人漫游"),
+            new ImageSource(R.drawable.personal_r_3, "民谣专场"),
+            new ImageSource(R.drawable.personal_r_4, "舒缓轻音")
+        };
+        for (int i = 0; i < line1Text.length; i++) {
+            CategoryItemViewDoubleLine categoryItemViewDoubleLine = new CategoryItemViewDoubleLine(getContext());
+            String name = line1Text[i];
+            Drawable image = imageSources[i].getImageDrawable(getContext());
+            categoryItemViewDoubleLine.setCategory(name, line2Text[i], image, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((MainActivity) getActivity()).navigationToMusicPlayerFragment(name);
+                }
+            });
+            // 布局管理
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.weight = 1;
+            layoutParams.setMargins(0, 20, 30, 0);
+            categoryItemViewDoubleLine.setLayoutParams(layoutParams);
+            linearLayout.addView(categoryItemViewDoubleLine);
+        }
     }
 }

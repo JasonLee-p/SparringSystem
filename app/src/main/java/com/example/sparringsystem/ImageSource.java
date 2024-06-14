@@ -1,5 +1,10 @@
 package com.example.sparringsystem;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+
 public class ImageSource {
     public static ImageSource RECOMMENDATION1;
     public static ImageSource RECOMMENDATION2;
@@ -9,7 +14,7 @@ public class ImageSource {
     private String url = null;
     private String localPath = null;
     private int resourceId = 0;
-    private String title = "";
+    private String title;
 
     public static void init() {
         RECOMMENDATION1 = new ImageSource(R.drawable.r_1, "推荐1");
@@ -57,6 +62,20 @@ public class ImageSource {
         return resourceId;
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public Drawable getImageDrawable(Context context) {
+        Resources.Theme theme = context.getTheme();
+        if (resourceId != 0) {
+            return context.getResources().getDrawable(resourceId, theme);
+        } else if (localPath != null) {
+            return Drawable.createFromPath(localPath);
+        } else if (url != null) {
+            return context.getResources().getDrawable(R.drawable.unknown, theme);
+        } else {
+            return context.getResources().getDrawable(R.drawable.unknown, theme);
+        }
+    }
+
     public boolean isUrl() {
         return url != null;
     }
@@ -68,4 +87,6 @@ public class ImageSource {
     public boolean isResourceId() {
         return resourceId != 0;
     }
+
+    public void setTitle(String title) { this.title = title; }
 }

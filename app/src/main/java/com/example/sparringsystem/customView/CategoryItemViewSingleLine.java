@@ -34,7 +34,7 @@ public class CategoryItemViewSingleLine extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.view_category_item_single, this, true);
-        imageView = findViewById(R.id.category_image);
+        imageView = findViewById(R.id.category_single_image);
         textView = findViewById(R.id.category_name);
     }
 

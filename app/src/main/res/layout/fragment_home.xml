@@ -4,22 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context=".HomeFragment">
 
     <LinearLayout
         android:id="@+id/LinearLayout_home"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="22dp"
@@ -30,10 +34,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingLeft="10dp"
                 android:paddingTop="2dp"
-                android:paddingEnd="2dp"
-                android:paddingRight="10dp">
+                android:paddingEnd="2dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -53,191 +55,59 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:id="@+id/textView_Recommended"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="个性推荐"
+            android:textAlignment="textStart"
+            android:textColor="@color/fg_color1"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:id="@+id/Linearlayout_RecommendedPlaylists"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
+            android:minHeight="180dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView_Recommended"
+            <HorizontalScrollView
+                android:id="@+id/ScrollView_RecommendedPlaylist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="sans-serif-black"
-                android:text="个性推荐"
-                android:textAlignment="textStart"
-                android:textColor="@color/fg_color1"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <ScrollView
-                android:id="@+id/ScrollView_ReccommendedPlaylist"
-                android:layout_width="match_parent"
-                android:layout_height="220dp">
+                android:scrollbars="none">
 
                 <LinearLayout
-                    android:layout_width="700dp"
-                    android:layout_height="220dp"
+                    android:id="@+id/linearlayout_personalRecommendation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/LinearLayout_Palylist1"
-                        android:layout_width="150dp"
-                        android:layout_height="220dp"
-                        android:layout_marginLeft="5dp"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ImageButton_playlists1"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:clickable="false"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__4_" />
-
-                        <TextView
-                            android:id="@+id/textview_Playlist1Keyword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="每日推荐"
-                            android:textColor="@color/dark_gray"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textview_Playlist1Text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="符合你口味的新鲜好歌"
-                            android:textColor="@color/dark_gray"
-                            android:textSize="15sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/LinearLayout_Palylist2"
-                        android:layout_width="150dp"
-                        android:layout_height="220dp"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ImageButton_playlists2"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__12_" />
-
-                        <TextView
-                            android:id="@+id/textview_Playlist2Keyword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="私人漫游"
-                            android:textColor="#635858"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textview_Playlist2Text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="多种模式随心播放"
-                            android:textColor="#757575"
-                            android:textSize="15sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/LinearLayout_Palylist3"
-                        android:layout_width="150dp"
-                        android:layout_height="220dp"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ImageButton_playlists3"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__7_" />
-
-                        <TextView
-                            android:id="@+id/textView_Playlists3Keyword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="民谣专场"
-                            android:textColor="#635858"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView_Playlists3Text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="进入民谣的浪漫世界"
-                            android:textColor="#757575"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/LinearLayout_Palylist4"
-                        android:layout_width="150dp"
-                        android:layout_height="220dp"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/imageButton_Playlist4"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/playlist__10_" />
-
-                        <TextView
-                            android:id="@+id/textView_Playlist4Keyword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="舒缓轻音"
-                            android:textColor="#635858"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView_Playlist4Text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="TextView"
-                            android:textColor="#757575"
-                            android:textSize="15sp" />
-                    </LinearLayout>
 
                 </LinearLayout>
-            </ScrollView>
+            </HorizontalScrollView>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="410dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
             <LinearLayout
                 android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_TrainingEntrance"
                     android:layout_width="68dp"
                     android:layout_height="68dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="12dp"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -246,8 +116,7 @@
                 <TextView
                     android:id="@+id/textView_TrainingEntrance"
                     android:layout_width="match_parent"
-                    android:layout_height="20sp"
-                    android:layout_marginLeft="2dp"
+                    android:layout_height="wrap_content"
                     android:text="训练入口"
                     android:textAlignment="center"
                     android:textSize="15sp"
@@ -258,16 +127,17 @@
             <LinearLayout
                 android:id="@+id/LinearLayout_Rankings"
                 android:layout_width="80dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_Rankings"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -277,6 +147,8 @@
                     android:id="@+id/textView_Rankings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="排行榜"
                     android:textAlignment="center"
                     android:textSize="13sp"
@@ -286,16 +158,17 @@
             <LinearLayout
                 android:id="@+id/LinearLayout_Playlists"
                 android:layout_width="67dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_Playlists"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -305,6 +178,7 @@
                     android:id="@+id/textView_Playlists"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="歌单"
                     android:textAlignment="center"
                     android:textSize="13sp"
@@ -314,16 +188,17 @@
             <LinearLayout
                 android:id="@+id/LinearLayout_VideoPlayback"
                 android:layout_width="80dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_VideoPlayback"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -333,6 +208,8 @@
                     android:id="@+id/textView_VideoPlayback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="视频播放"
                     android:textAlignment="center"
                     android:textSize="13sp"
@@ -342,16 +219,17 @@
             <LinearLayout
                 android:id="@+id/LinearLayout_TrainingRecords"
                 android:layout_width="80dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="7dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_TrainingRecords"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -361,6 +239,8 @@
                     android:id="@+id/textView_TrainingRecords"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:gravity="center"
                     android:text="训练记录"
                     android:textAlignment="center"
                     android:textSize="13sp"
@@ -370,8 +250,8 @@
 
         <LinearLayout
             android:id="@+id/LinearLayout_Course"
-            android:layout_width="410dp"
-            android:layout_height="196dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
@@ -379,22 +259,22 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:fontFamily="sans-serif-black"
                 android:text="推荐课程"
                 android:textColor="#403131"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <ScrollView
+            <HorizontalScrollView
                 android:id="@+id/ScrollView_course"
-                android:layout_width="704dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -408,7 +288,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__6_" />
+                            android:src="@drawable/course_r_1" />
 
                         <TextView
                             android:id="@+id/textView2"
@@ -432,7 +312,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__9_" />
+                            android:src="@drawable/course_r_2" />
 
                         <TextView
                             android:id="@+id/textView_Course2"
@@ -454,7 +334,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/playlist__8_" />
+                            android:src="@drawable/course_r_3" />
 
                         <TextView
                             android:id="@+id/textView_Course3"
@@ -476,7 +356,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:contentDescription="@string/app_name"
-                            android:src="@drawable/ic_playlist" />
+                            android:src="@drawable/course_r_4" />
 
                         <TextView
                             android:id="@+id/textView_Course4"
@@ -487,7 +367,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
-            </ScrollView>
+            </HorizontalScrollView>
         </LinearLayout>
 
     </LinearLayout>

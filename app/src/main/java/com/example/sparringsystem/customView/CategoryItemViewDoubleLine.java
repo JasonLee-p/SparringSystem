@@ -34,8 +34,8 @@ public class CategoryItemViewDoubleLine extends FrameLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.view_category_item_single, this, true);
-        imageView = findViewById(R.id.category_image);
+        LayoutInflater.from(context).inflate(R.layout.view_category_item_double, this, true);
+        imageView = findViewById(R.id.category_double_image);
         textView1 = findViewById(R.id.category_text1);
         textView2 = findViewById(R.id.category_text2);
     }

@@ -81,19 +81,9 @@ public class PracticeFragment extends Fragment {
 
         for (int i = 0; i < recommendationNames.length; i++) {
             CustomCardView recommendationItemView = new CustomCardView(getContext());
-            Drawable image;
             // 转为Drawable
             android.content.Context context = getContext();
-            if (recommendationImages[i].isResourceId()) {
-                image = ContextCompat.getDrawable(context, recommendationImages[i].getImageResourceId());
-            } else if (recommendationImages[i].isLocalPath()) {
-                image = Drawable.createFromPath(recommendationImages[i].getLocalPath());
-            } else if (recommendationImages[i].isUrl()) {
-                // 从URL加载图片
-                image = ContextCompat.getDrawable(context, R.drawable.unknown_album);
-            } else {
-                image = ContextCompat.getDrawable(context, R.drawable.unknown_album);
-            }
+            Drawable image = recommendationImages[i].getImageDrawable(getContext());
             String name = recommendationNames[i];
             recommendationItemView.setCategory(name, image, new View.OnClickListener() {
                 @Override
