@@ -65,10 +65,11 @@
 
                         <ImageButton
                             android:id="@+id/ImageButton_playlists1"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
-                            android:src="@android:drawable/btn_star" />
+                            android:clickable="false"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__4_" />
 
                         <TextView
                             android:id="@+id/textview_Playlist1Keyword"
@@ -99,10 +100,10 @@
 
                         <ImageButton
                             android:id="@+id/ImageButton_playlists2"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
-                            android:src="@android:drawable/star_big_on" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__12_" />
 
                         <TextView
                             android:id="@+id/textview_Playlist2Keyword"
@@ -133,10 +134,10 @@
 
                         <ImageButton
                             android:id="@+id/ImageButton_playlists3"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
-                            android:src="@android:drawable/star_off" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__7_" />
 
                         <TextView
                             android:id="@+id/textView_Playlists3Keyword"
@@ -168,7 +169,7 @@
                             android:id="@+id/imageButton_Playlist4"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
-                            android:src="@android:drawable/star_on" />
+                            android:src="@drawable/playlist__10_" />
 
                         <TextView
                             android:id="@+id/textView_Playlist4Keyword"
@@ -208,15 +209,20 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_TrainingEntrance"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@android:drawable/btn_star" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon" />
 
                 <TextView
                     android:id="@+id/textView_TrainingEntrance"
-                    android:layout_width="80dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20sp"
+                    android:layout_marginLeft="2dp"
                     android:text="训练入口"
                     android:textAlignment="center"
                     android:textSize="15sp"
@@ -228,15 +234,19 @@
                 android:id="@+id/LinearLayout_Rankings"
                 android:layout_width="80dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="8dp"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_Rankings"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@android:drawable/btn_star" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_rankings" />
 
                 <TextView
                     android:id="@+id/textView_Rankings"
@@ -244,23 +254,27 @@
                     android:layout_height="wrap_content"
                     android:text="排行榜"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/LinearLayout_Playlists"
-                android:layout_width="80dp"
+                android:layout_width="67dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="2dp"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_Playlists"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
-                    android:src="@android:drawable/btn_star" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_playlist" />
 
                 <TextView
                     android:id="@+id/textView_Playlists"
@@ -268,7 +282,7 @@
                     android:layout_height="wrap_content"
                     android:text="歌单"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -281,10 +295,14 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_VideoPlayback"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@android:drawable/btn_star" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_video" />
 
                 <TextView
                     android:id="@+id/textView_VideoPlayback"
@@ -292,7 +310,7 @@
                     android:layout_height="wrap_content"
                     android:text="视频播放"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -300,15 +318,19 @@
                 android:id="@+id/LinearLayout_TrainingRecords"
                 android:layout_width="80dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="7dp"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/imageButton_TrainingRecords"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@android:drawable/btn_star" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_record" />
 
                 <TextView
                     android:id="@+id/textView_TrainingRecords"
@@ -316,7 +338,7 @@
                     android:layout_height="wrap_content"
                     android:text="训练记录"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -324,8 +346,8 @@
         <LinearLayout
             android:id="@+id/LinearLayout_Course"
             android:layout_width="410dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="25dp"
+            android:layout_height="196dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
             <TextView
@@ -342,7 +364,8 @@
             <ScrollView
                 android:id="@+id/ScrollView_course"
                 android:layout_width="704dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -352,20 +375,21 @@
                     <LinearLayout
                         android:layout_width="100dp"
                         android:layout_height="130dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
                         <ImageButton
                             android:id="@+id/imageButton2"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="95dp"
                             android:layout_height="95dp"
-                            android:src="@android:drawable/btn_star" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__6_" />
 
                         <TextView
                             android:id="@+id/textView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
                             android:text="零基础二胡入门"
                             android:textSize="13sp" />
 
@@ -380,10 +404,10 @@
 
                         <ImageButton
                             android:id="@+id/imageButton_Course2"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="95dp"
                             android:layout_height="95dp"
-                            android:src="@android:drawable/stat_sys_upload" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__9_" />
 
                         <TextView
                             android:id="@+id/textView_Course2"
@@ -402,10 +426,10 @@
 
                         <ImageButton
                             android:id="@+id/imageButton_Course3"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="95dp"
                             android:layout_height="95dp"
-                            android:src="@android:drawable/stat_sys_headset" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/playlist__8_" />
 
                         <TextView
                             android:id="@+id/textView_Course3"
@@ -424,10 +448,10 @@
 
                         <ImageButton
                             android:id="@+id/imageButton_Course4"
-                            android:contentDescription="@string/app_name"
                             android:layout_width="95dp"
                             android:layout_height="95dp"
-                            android:src="@android:drawable/stat_sys_phone_call_on_hold" />
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_playlist" />
 
                         <TextView
                             android:id="@+id/textView_Course4"
