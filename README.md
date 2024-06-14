@@ -1,3 +1,5 @@
+# 弦轨智能陪练系统
+'''
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -11,3 +13,4 @@ dependencies {
     implementation 'com.github.wendykierp:JTransforms:3.1'
 
 }
+'''
