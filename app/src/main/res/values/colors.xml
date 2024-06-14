@@ -15,4 +15,12 @@
     <color name="dark_red">#FF880000</color>
     <color name="dark_green">#FF008800</color>
     <color name="dark_blue">#FF000088</color>
+    <item name="yellow_to_white_gradient" type="drawable">
+        <shape>
+            <gradient
+                startColor="@color/bg_color2"
+                endColor="@color/white"
+                type="linear" />
+        </shape>
+    </item>
 </resources>
