@@ -89,7 +89,7 @@ public class PracticeFragment extends Fragment {
             recommendationItemView.setCategory(name, image, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    navigationToSongListFragment(name);
+                    navigationToMusicPlayerFragment(name);
                 }
             });
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -113,7 +113,7 @@ public class PracticeFragment extends Fragment {
             categoryItemViewSingleLine.setCategory(name, image, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    navigationToMusicPlayerFragment(name);
+                    navigationToSongListFragment(name);
                 }
             });
             GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
