@@ -1,11 +1,13 @@
 package com.example.sparringsystem.PracticeModule;
 
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,14 +15,21 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.sparringsystem.ImageSource;
 import com.example.sparringsystem.MainActivity;
 import com.example.sparringsystem.R;
 import com.example.sparringsystem.customView.CategoryItemView;
+import com.example.sparringsystem.customView.CustomCardView;
+
+import java.util.List;
 
 public class PracticeFragment extends Fragment {
     // 子界面
     private SongListFragment songListFragment;
     private MusicPlayerFragment musicPlayerFragment;
+
+    // 推荐项
+    private List<RecommendationItem> recommendationItems;
 
     //    private MusicPlayer musicPlayer;
     //    private Handler handler = new Handler();
@@ -67,11 +76,35 @@ public class PracticeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Adding category items to the grid layout
-        GridLayout gridLayout = view.findViewById(R.id.grid_layout);
-        addCategoryItems(gridLayout);
+        LinearLayout recommendationLayout = view.findViewById(R.id.recommendation_layout);
+        GridLayout instrumentGridLayout = view.findViewById(R.id.instrument_grid_layout);
+        addRecommendationCategoryItems(recommendationLayout);
+        addInstrumentCategoryItems(instrumentGridLayout);
     }
 
-    private void addCategoryItems(GridLayout gridLayout) {
+    private void addRecommendationCategoryItems(LinearLayout linearLayout) {
+        String[] recommendationNames = {"推荐1", "推荐2", "推荐3", "推荐4"};
+        ImageSource[] recommendationImages = {ImageSource.RECOMMENDATION1, ImageSource.RECOMMENDATION2, ImageSource.RECOMMENDATION3, ImageSource.RECOMMENDATION4};
+
+        for (int i = 0; i < recommendationNames.length; i++) {
+            CustomCardView recommendationItemView = new CustomCardView(getContext());
+            Drawable image = ContextCompat.getDrawable(getContext(), recommendationImages[i].getImageResourceId());
+            String name = recommendationNames[i];
+            recommendationItemView.setCategory(name, image, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    navigationToSongListFragment(name);
+                }
+            });
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.weight = 1;
+            layoutParams.setMargins(30, 20, 30, 20);
+            recommendationItemView.setLayoutParams(layoutParams);
+            linearLayout.addView(recommendationItemView);
+        }
+    }
+
+    private void addInstrumentCategoryItems(GridLayout gridLayout) {
         // Define your category items here
         String[] categoryNames = {"电吉他", "琵琶", "民谣吉他", "二胡"};
         int[] categoryImages = {R.drawable.i_guitar, R.drawable.i_pipa, R.drawable.i_guitar2, R.drawable.i_erhu};
@@ -83,7 +116,7 @@ public class PracticeFragment extends Fragment {
             categoryItemView.setCategory(name, image, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((MainActivity) getActivity()).navigationToSongListFragment(name);
+                    navigationToMusicPlayerFragment(name);
                 }
             });
             GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
@@ -102,6 +135,11 @@ public class PracticeFragment extends Fragment {
     }
 
     public void navigationToSongListFragment(String name) {
+        // 显示SongListFragment
+        loadFragment(songListFragment);
+    }
+
+    public void navigationToMusicPlayerFragment(String name) {
         // 显示MusicPlayerFragment
         loadFragment(musicPlayerFragment);
     }

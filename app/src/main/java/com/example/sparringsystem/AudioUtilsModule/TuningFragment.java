@@ -1,12 +1,13 @@
 package com.example.sparringsystem.AudioUtilsModule;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.sparringsystem.R;
 
@@ -17,14 +18,22 @@ import com.example.sparringsystem.R;
  */
 public class TuningFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    // Rename parameter arguments, choose names that match
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    // Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView tunerTitle;
+    private TextView settings;
+    private View waveformView;
+    private TextView detectedNote;
+    private ImageView keyboardView;
+    private TextView frequencyDisplay;
+    private TextView centsDeviation;
+    private ImageView tuningMeter;
 
     public TuningFragment() {
         // Required empty public constructor
@@ -38,7 +47,6 @@ public class TuningFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment TuningFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static TuningFragment newInstance(String param1, String param2) {
         TuningFragment fragment = new TuningFragment();
         Bundle args = new Bundle();
@@ -61,6 +69,20 @@ public class TuningFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tuning, container, false);
+        View view = inflater.inflate(R.layout.fragment_tuning, container, false);
+
+        // Initialize views
+        tunerTitle = view.findViewById(R.id.tuner_title);
+        settings = view.findViewById(R.id.settings);
+        waveformView = view.findViewById(R.id.waveform_view);
+        detectedNote = view.findViewById(R.id.detected_note);
+        keyboardView = view.findViewById(R.id.keyboard_view);
+        frequencyDisplay = view.findViewById(R.id.frequency_display);
+        centsDeviation = view.findViewById(R.id.cents_deviation);
+        tuningMeter = view.findViewById(R.id.tuning_meter);
+
+        // Add your logic here
+
+        return view;
     }
 }

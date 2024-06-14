@@ -12,21 +12,46 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView_searchbox"
-            android:layout_width="350dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="30dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:drawable/button_onoff_indicator_off"
-            android:drawableLeft="@drawable/app_icon_background"
-            android:text="搜素歌曲/歌手"
-            android:textAlignment="viewStart"
-            android:textColor="#989898"
-            android:textSize="24dp"
-            app:drawableLeftCompat="@android:drawable/ic_search_category_default" />
+            android:layout_marginBottom="15dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="2dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:hint="搜索"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textColorHint="@color/fg_color1" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/Linearlayout_RecommendedPlaylists"

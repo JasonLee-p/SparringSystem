@@ -12,10 +12,10 @@ import com.example.sparringsystem.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link spectrumFragment#newInstance} factory method to
+ * Use the {@link SpectrumFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class spectrumFragment extends Fragment {
+public class SpectrumFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class spectrumFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public spectrumFragment() {
+    public SpectrumFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class spectrumFragment extends Fragment {
      * @return A new instance of fragment spectrumFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static spectrumFragment newInstance(String param1, String param2) {
-        spectrumFragment fragment = new spectrumFragment();
+    public static SpectrumFragment newInstance(String param1, String param2) {
+        SpectrumFragment fragment = new SpectrumFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

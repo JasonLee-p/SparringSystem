@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     // 调音界面
                     loadFragment(tuningFragment);
                     return true;
-                } else if (active_item == R.id.navigation_music) {
+                } else if (active_item == R.id.navigation_practice) {
                     // 练习界面
                     loadFragment(practiceFragment);
                     return true;
@@ -81,9 +81,13 @@ public class MainActivity extends AppCompatActivity {
         practiceFragment.navigationToSongListFragment(name);
     }
 
+    public void navigationToMusicPlayerFragment(String name) {
+        // 跳转到PracticeFragment的子界面MusicPlayerFragment
+        practiceFragment.navigationToMusicPlayerFragment(name);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 }

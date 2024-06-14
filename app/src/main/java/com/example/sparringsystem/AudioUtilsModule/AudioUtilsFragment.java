@@ -3,6 +3,7 @@ package com.example.sparringsystem.AudioUtilsModule;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,9 +19,10 @@ import com.example.sparringsystem.R;
  * create an instance of this fragment.
  */
 public class AudioUtilsFragment extends Fragment {
+    // 子Fragment
+    private TuningFragment tuningFragment;
+    private SpectrumFragment spectrumFragment;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -53,6 +55,10 @@ public class AudioUtilsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 初始化子Fragment
+        tuningFragment = new TuningFragment();
+        spectrumFragment = new SpectrumFragment();
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -95,5 +101,20 @@ public class AudioUtilsFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void navigationToTuningFragment() {
+        loadFragment(tuningFragment);
+    }
+
+    public void navigationToSpectrumFragment() {
+        loadFragment(spectrumFragment);
+    }
+
+    void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
