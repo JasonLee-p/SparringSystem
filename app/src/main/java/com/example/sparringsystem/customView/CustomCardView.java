@@ -35,6 +35,8 @@ public class CustomCardView extends CardView {
 
     public void setCategory(String name, Drawable image, OnClickListener onClickListener) {
         imageView.setImageDrawable(image);
+        // dp转px
+        setRadius(16 * getResources().getDisplayMetrics().density);
         this.setOnClickListener(onClickListener);
     }
 }

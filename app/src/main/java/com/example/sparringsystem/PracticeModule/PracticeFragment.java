@@ -88,7 +88,19 @@ public class PracticeFragment extends Fragment {
 
         for (int i = 0; i < recommendationNames.length; i++) {
             CustomCardView recommendationItemView = new CustomCardView(getContext());
-            Drawable image = ContextCompat.getDrawable(getContext(), recommendationImages[i].getImageResourceId());
+            Drawable image;
+            // 转为Drawable
+            android.content.Context context = getContext();
+            if (recommendationImages[i].isResourceId()) {
+                image = ContextCompat.getDrawable(context, recommendationImages[i].getImageResourceId());
+            } else if (recommendationImages[i].isLocalPath()) {
+                image = Drawable.createFromPath(recommendationImages[i].getLocalPath());
+            } else if (recommendationImages[i].isUrl()) {
+                // 从URL加载图片
+                image = ContextCompat.getDrawable(context, R.drawable.unknown_album);
+            } else {
+                image = ContextCompat.getDrawable(context, R.drawable.unknown_album);
+            }
             String name = recommendationNames[i];
             recommendationItemView.setCategory(name, image, new View.OnClickListener() {
                 @Override
@@ -98,7 +110,7 @@ public class PracticeFragment extends Fragment {
             });
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.weight = 1;
-            layoutParams.setMargins(30, 20, 30, 20);
+            layoutParams.setMargins(0, 20, 30, 20);
             recommendationItemView.setLayoutParams(layoutParams);
             linearLayout.addView(recommendationItemView);
         }

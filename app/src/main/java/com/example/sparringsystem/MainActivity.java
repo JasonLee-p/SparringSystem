@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // 初始化类静态变量
+        ImageSource.init();
         // 初始化子界面
         homeFragment = new HomeFragment();
         tuningFragment = new AudioUtilsFragment();

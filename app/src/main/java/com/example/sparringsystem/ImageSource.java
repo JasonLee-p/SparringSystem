@@ -1,21 +1,25 @@
 package com.example.sparringsystem;
 
-import android.media.Image;
-
 public class ImageSource {
-    public static final ImageSource RECOMMENDATION1 = new ImageSource(R.drawable.r1, "推荐1");
-    public static final ImageSource RECOMMENDATION2 = new ImageSource(R.drawable.r2, "推荐2");
-    public static final ImageSource RECOMMENDATION3 = new ImageSource(R.drawable.r3, "推荐3");
-    public static final ImageSource RECOMMENDATION4 = new ImageSource(R.drawable.r4, "推荐4");
+    public static ImageSource RECOMMENDATION1;
+    public static ImageSource RECOMMENDATION2;
+    public static ImageSource RECOMMENDATION3;
+    public static ImageSource RECOMMENDATION4;
 
     private String url = null;
     private String localPath = null;
     private int resourceId = 0;
-    private String title;
-    private int imageResourceId;
+    private String title = "";
+
+    public static void init() {
+        RECOMMENDATION1 = new ImageSource(R.drawable.r_1, "推荐1");
+        RECOMMENDATION2 = new ImageSource(R.drawable.r_2, "推荐2");
+        RECOMMENDATION3 = new ImageSource(R.drawable.r_3, "推荐3");
+        RECOMMENDATION4 = new ImageSource(R.drawable.r_4, "推荐4");
+    }
 
 
-    public ImageSource(String url, String title, String description) {
+    public ImageSource(String url, String title) {
         this.url = url;
         this.title = title;
     }
@@ -25,10 +29,9 @@ public class ImageSource {
         this.title = title;
     }
 
-    public ImageSource(String localPath, String title, int imageResourceId, boolean isLocal) {
+    public ImageSource(String localPath, String title, boolean isLocal) {
         this.localPath = localPath;
         this.title = title;
-        this.imageResourceId = imageResourceId;
     }
 
     public String getUrl() {
@@ -50,7 +53,8 @@ public class ImageSource {
     }
 
     public int getImageResourceId() {
-        return imageResourceId;
+        if (resourceId == 0) return R.drawable.unknown;
+        return resourceId;
     }
 
     public boolean isUrl() {
