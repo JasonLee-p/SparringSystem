@@ -18,6 +18,7 @@ import com.example.sparringsystem.ImageSource;
 import com.example.sparringsystem.R;
 import com.example.sparringsystem.customView.CategoryItemViewSingleLine;
 import com.example.sparringsystem.customView.CustomCardView;
+import com.example.sparringsystem.customView.RecommendationItem;
 
 import java.util.List;
 

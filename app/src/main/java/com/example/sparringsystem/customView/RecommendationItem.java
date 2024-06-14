@@ -1,4 +1,4 @@
-package com.example.sparringsystem.PracticeModule;
+package com.example.sparringsystem.customView;
 
 import com.example.sparringsystem.ImageSource;
 

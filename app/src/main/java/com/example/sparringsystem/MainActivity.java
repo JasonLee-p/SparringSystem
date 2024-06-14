@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.sparringsystem.AudioUtilsModule.AudioUtilsFragment;
 import com.example.sparringsystem.PracticeModule.PracticeFragment;
+import com.example.sparringsystem.UserModule.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -86,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
     public void navigationToMusicPlayerFragment(String name) {
         // 跳转到PracticeFragment的子界面MusicPlayerFragment
         practiceFragment.navigationToMusicPlayerFragment(name);
+    }
+
+    public void navigationToShouCangFragment(String name) {
     }
 
     @Override
