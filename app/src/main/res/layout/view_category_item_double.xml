@@ -12,28 +12,28 @@
 
         <ImageView
             android:id="@+id/category_double_image"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/category_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textSize="18sp"
+            android:layout_marginTop="3dp"
+            android:gravity="left"
             android:textColor="@color/fg_color1"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/category_text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:gravity="center"
-            android:textSize="15sp"
+            android:layout_marginTop="0dp"
+            android:gravity="left"
             android:textColor="@color/fg_color1"
+            android:textSize="15sp"
             android:textStyle="normal" />
     </LinearLayout>
 </FrameLayout>

@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     // 子界面
     private HomeFragment homeFragment;
-    private AudioUtilsFragment tuningFragment;
+    private AudioUtilsFragment audioUtilsFragment;
     private PracticeFragment practiceFragment;
     private UserFragment userFragment;
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ImageSource.init();
         // 初始化子界面
         homeFragment = new HomeFragment();
-        tuningFragment = new AudioUtilsFragment();
+        audioUtilsFragment = new AudioUtilsFragment();
         practiceFragment = new PracticeFragment();
         userFragment = new UserFragment();
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (active_item == R.id.navigation_tuning) {
                     // 调音界面
-                    loadFragment(tuningFragment);
+                    loadFragment(audioUtilsFragment);
                     return true;
                 } else if (active_item == R.id.navigation_practice) {
                     // 练习界面

@@ -13,7 +13,7 @@ public class MusicPlayer {
     private boolean isPrepared = false;
 
     // 播放列表
-    public SongList songList = new SongList();
+    public SongPlayList songList = new SongPlayList();
 
     public MusicPlayer(Context context) {
         this.context = context;

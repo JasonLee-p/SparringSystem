@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">弦轨智能陪练系统</string>
     <string name="practice_title">曲库练习</string>
-    <string name="tuner_title">调音器</string>
+    <string name="tuner_title">弦轨调音器</string>
     <string name="navigation_title">消息列表</string>
     <string name="home_btn">首页</string>
     <string name="practice_btn">练习</string>
@@ -11,5 +11,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="setting">设置</string>
     <string name="tuning_meter">tuning_meter</string>
+    <string name="settings">设置</string>
+    <string name="keyboard">键盘</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

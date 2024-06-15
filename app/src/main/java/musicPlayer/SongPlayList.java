@@ -3,11 +3,11 @@ package musicPlayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongList {
+public class SongPlayList {
     private List<Song> songs;
     private int currentIndex;
 
-    public SongList() {
+    public SongPlayList() {
         songs = new ArrayList<>();
         currentIndex = 0;
     }

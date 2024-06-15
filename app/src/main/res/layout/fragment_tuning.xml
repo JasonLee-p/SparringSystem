@@ -4,45 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AudioUtilsModule.TuningFragment">
+    tools:context=".AudioUtilsModule.TuningFragment"
+    android:background="@color/bg_color1">
 
     <!-- Header with tuning information -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@color/bg_color2"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:padding="8dp"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tuner_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="调音器 A4=440.0Hz"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:text="@string/tuner_title"
+            android:textColor="@color/fg_color1"
+            android:textSize="22sp" />
 
-        <TextView
+        <ImageView
             android:id="@+id/settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/setting"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@string/settings"
+            android:src="@drawable/ic_settings" />
     </LinearLayout>
 
     <!-- Waveform display -->
     <View
         android:id="@+id/waveform_view"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,14 +54,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="G#3"
+        android:text="A4"
         android:textSize="48sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/fg_color1"
         app:layout_constraintTop_toBottomOf="@id/waveform_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Keyboard view -->
+    <TextView
+        android:id="@+id/frequency_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="440Hz"
+        android:textColor="@color/fg_color1"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detected_note" />
+
     <HorizontalScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -75,51 +87,26 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- This can be an image or a custom view for the piano keys -->
             <ImageView
                 android:id="@+id/keyboard_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/keyboard" />
         </LinearLayout>
     </HorizontalScrollView>
 
     <!-- Frequency display -->
-    <TextView
-        android:id="@+id/frequency_display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="2x: 415.3Hz base: 207.7Hz"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/keyboard_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="NotSibling" />
 
     <!-- Cents deviation display -->
-    <TextView
-        android:id="@+id/cents_deviation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="+20.1¢ -0.3Hz"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/frequency_display"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Tuning meter -->
     <ImageView
         android:id="@+id/tuning_meter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:contentDescription="@string/tuning_meter"
-        app:layout_constraintTop_toBottomOf="@id/cents_deviation"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
