@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserModule.UserFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingTop="45dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/userAvatarView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/r_3" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/gradient_background_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/userFansNumView"
+                    style="@style/BodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="粉丝数量：0" />
+
+                <TextView
+                    android:id="@+id/userFollowNumView"
+                    style="@style/BodyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的关注：0" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/userNameView"
+                style="@style/BodyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="昵称:爱弹奏的我" />
+
+            <TextView
+                android:id="@+id/userLevelView"
+                style="@style/BodyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="等级:0" />
+
+            <TextView
+                android:id="@+id/userVipLevelView"
+                style="@style/BodyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="VIP等级:5" />
+
+            <TextView
+                android:id="@+id/userIdView"
+                style="@style/BodyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="账号ID: 334578" />
+
+            <!-- 这里可以添加更多的TextView来显示其他信息 -->
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient_background_horizontal"
+            android:cacheColorHint="@color/fg_color1"
+            android:divider="@color/bg_color0"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,4 +1,4 @@
-package musicPlayer;
+package com.example.sparringsystem.musicPlayer;
 
 import java.util.ArrayList;
 import java.util.List;

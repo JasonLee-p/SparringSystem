@@ -1,4 +1,10 @@
-package musicPlayer;
+package com.example.sparringsystem.musicPlayer;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+import com.example.sparringsystem.ImageSource;
+import com.example.sparringsystem.R;
 
 public class Song {
     private String url = null;
@@ -6,7 +12,7 @@ public class Song {
     private int resourceId = 0;
     private String title;
     private String artist;
-    private int imageResourceId;
+    private ImageSource imageSource = ImageSource.UNKNOWN;
 
     public Song(String url, String title, String artist) {
         this.url = url;
@@ -25,7 +31,7 @@ public class Song {
         this.localPath = localPath;
         this.title = title;
         this.artist = artist;
-        this.imageResourceId = imageResourceId;
+        this.imageSource = new ImageSource(imageResourceId, title);
     }
 
     public String getUrl() {
@@ -51,7 +57,11 @@ public class Song {
     }
 
     public int getImageResourceId() {
-        return imageResourceId;
+        return imageSource.getResourceId();
+    }
+
+    public void setImageResourceId(int resourceId) {
+        imageSource = new ImageSource(resourceId, title);
     }
 
     public boolean isUrl() {
@@ -64,5 +74,9 @@ public class Song {
 
     public boolean isResourceId() {
         return resourceId != 0;
+    }
+
+    public Drawable getImageDrawable(Context context) {
+        return imageSource.getImageDrawable(context);
     }
 }

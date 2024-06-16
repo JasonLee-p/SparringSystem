@@ -10,6 +10,7 @@ public class ImageSource {
     public static ImageSource RECOMMENDATION2;
     public static ImageSource RECOMMENDATION3;
     public static ImageSource RECOMMENDATION4;
+    public static ImageSource UNKNOWN;
 
     private String url = null;
     private String localPath = null;
@@ -21,6 +22,7 @@ public class ImageSource {
         RECOMMENDATION2 = new ImageSource(R.drawable.r_2, "推荐2");
         RECOMMENDATION3 = new ImageSource(R.drawable.r_3, "推荐3");
         RECOMMENDATION4 = new ImageSource(R.drawable.r_4, "推荐4");
+        UNKNOWN = new ImageSource(R.drawable.unknown, "未知");
     }
 
 

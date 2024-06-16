@@ -12,13 +12,13 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/category_single_image"
+            android:id="@+id/category_user_image"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/category_name"
+            android:id="@+id/category_user_name"
             style="@style/BodyText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -45,14 +45,14 @@
     <!-- Title 2 Style -->
     <style name="Title2">
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/fg_color1</item>
     </style>
 
     <!-- Title 3 Style -->
     <style name="Title3">
         <item name="android:textSize">17sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/fg_color1</item>
     </style>
 
@@ -67,14 +67,14 @@
     <style name="InactiveBodyText">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">#222222</item>
     </style>
 
     <!-- SubBodyText Style -->
     <style name="SubBodyText">
         <item name="android:textSize">13sp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">#222222</item>
     </style>
 
     <style name="Widget.SparringSystem.AppWidget.Container" parent="android:Widget">

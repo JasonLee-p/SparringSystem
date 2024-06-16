@@ -34,8 +34,8 @@ public class CategoryItemViewSingleLine extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.view_category_item_single, this, true);
-        imageView = findViewById(R.id.category_single_image);
-        textView = findViewById(R.id.category_name);
+        imageView = findViewById(R.id.category_user_image);
+        textView = findViewById(R.id.category_user_name);
     }
 
     public void setCategory(String name, Drawable image, OnClickListener onClickListener) {

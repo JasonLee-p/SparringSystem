@@ -2,6 +2,7 @@ package com.example.sparringsystem.PracticeModule;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,16 @@ import com.example.sparringsystem.R;
 import com.example.sparringsystem.customView.CategoryItemViewSingleLine;
 import com.example.sparringsystem.customView.CustomCardView;
 import com.example.sparringsystem.customView.RecommendationItem;
+import com.example.sparringsystem.musicPlayer.Song;
 
 import java.util.List;
 
 public class PracticeFragment extends Fragment {
+
+    private static final String TAG = "PracticeFragment";
     // 子界面
-    private SongListFragment songListFragment;
-    private MusicPlayerFragment musicPlayerFragment;
+    public SongListFragment songListFragment;
+    public MusicPlayerFragment musicPlayerFragment;
 
     // 推荐项
     private List<RecommendationItem> recommendationItems;
@@ -33,6 +37,9 @@ public class PracticeFragment extends Fragment {
 
     public PracticeFragment() {
         // Required empty public constructor
+        // 初始化子界面
+        songListFragment = new SongListFragment();
+        musicPlayerFragment = new MusicPlayerFragment();
     }
 
     public static PracticeFragment newInstance(String param1, String param2) {
@@ -48,9 +55,6 @@ public class PracticeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 初始化子界面
-        songListFragment = new SongListFragment();
-        musicPlayerFragment = new MusicPlayerFragment();
 
         if (getArguments() != null) {
             String mParam1 = getArguments().getString("param1");
@@ -106,10 +110,14 @@ public class PracticeFragment extends Fragment {
         String[] categoryNames = {"电吉他", "琵琶", "民谣吉他", "二胡"};
         int[] categoryImages = {R.drawable.i_guitar, R.drawable.i_pipa, R.drawable.i_guitar2, R.drawable.i_erhu};
 
+        // 给songListFragment暂时的地添加一个歌曲
+        songListFragment.setContext(getContext());
+
         for (int i = 0; i < categoryNames.length; i++) {
             CategoryItemViewSingleLine categoryItemViewSingleLine = new CategoryItemViewSingleLine(getContext());
             Drawable image = ContextCompat.getDrawable(getContext(), categoryImages[i]);
             String name = categoryNames[i];
+
             categoryItemViewSingleLine.setCategory(name, image, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -142,6 +150,10 @@ public class PracticeFragment extends Fragment {
     }
 
     void loadFragment(Fragment fragment) {
+        if (getActivity() == null) {
+            Log.e(TAG, "Activity is null");
+            return;
+        }
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
         transaction.addToBackStack(null);

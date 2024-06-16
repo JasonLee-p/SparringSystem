@@ -19,8 +19,8 @@ import com.example.sparringsystem.R;
 
 import java.util.concurrent.TimeUnit;
 
-import musicPlayer.MusicPlayer;
-import musicPlayer.Song;
+import com.example.sparringsystem.musicPlayer.MusicPlayer;
+import com.example.sparringsystem.musicPlayer.Song;
 
 public class MusicPlayerFragment extends Fragment {
 
@@ -113,8 +113,7 @@ public class MusicPlayerFragment extends Fragment {
                 resetSeekBarAndTextTime();
                 if (musicPlayer.playPrevious(this::updateSeekBar)) {
                     playPauseButton.setImageResource(R.drawable.ic_pause);
-                }
-                else {
+                } else {
                     playPauseButton.setImageResource(R.drawable.ic_play);
                 }
                 totalTime.setText(formatTime(musicPlayer.getDuration()));
@@ -126,8 +125,7 @@ public class MusicPlayerFragment extends Fragment {
                 resetSeekBarAndTextTime();
                 if (musicPlayer.playNext(this::updateSeekBar)) {
                     playPauseButton.setImageResource(R.drawable.ic_pause);
-                }
-                else {
+                } else {
                     playPauseButton.setImageResource(R.drawable.ic_play);
                 }
             });
@@ -166,7 +164,6 @@ public class MusicPlayerFragment extends Fragment {
     }
 
     private void updateSeekBar() {
-
         seekBar.setMax(musicPlayer.getDuration());
         updateSeekBar = new Runnable() {
             @Override
@@ -204,8 +201,7 @@ public class MusicPlayerFragment extends Fragment {
         int img_id = song.getImageResourceId();
         if (img_id != 0) {
             albumImage.setImageResource(img_id);
-        }
-        else {
+        } else {
             albumImage.setImageResource(R.drawable.unknown_album);
         }
         lyricsView.setText("无歌词"); // 这里可以更新歌词

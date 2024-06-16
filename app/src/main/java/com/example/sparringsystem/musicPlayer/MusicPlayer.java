@@ -1,4 +1,4 @@
-package musicPlayer;
+package com.example.sparringsystem.musicPlayer;
 
 import android.content.Context;
 import android.media.MediaPlayer;
