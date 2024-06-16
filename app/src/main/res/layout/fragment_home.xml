@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".HomeFragment">
 
     <LinearLayout
@@ -16,24 +15,18 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardCornerRadius="22dp"
-            app:cardElevation="3dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/search_bar_background"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="2dp"
-                android:paddingEnd="2dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -41,28 +34,27 @@
                     android:src="@drawable/ic_search" />
 
                 <EditText
+                    style="@style/BodyText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="?android:attr/selectableItemBackground"
                     android:hint="搜索"
                     android:inputType="text"
-                    android:minHeight="48dp"
-                    android:padding="8dp"
-                    android:textColorHint="@color/fg_color1" />
+                    android:textColorHint="@color/fg_color1"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textView_Recommended"
+            style="@style/Title2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="26dp"
             android:text="个性推荐"
-            android:textAlignment="textStart"
-            android:textColor="@color/fg_color1"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textAlignment="textStart" />
 
         <LinearLayout
             android:id="@+id/Linearlayout_RecommendedPlaylists"
@@ -81,12 +73,8 @@
                     android:id="@+id/linearlayout_personalRecommendation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-
-                </LinearLayout>
+                    android:orientation="horizontal" />
             </HorizontalScrollView>
-
         </LinearLayout>
 
         <LinearLayout
@@ -95,7 +83,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="20dp">
+            android:paddingTop="26dp">
 
             <LinearLayout
                 android:layout_width="80dp"
@@ -117,14 +105,12 @@
 
                 <TextView
                     android:id="@+id/textView_TrainingEntrance"
+                    style="@style/BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minWidth="70dp"
                     android:text="训练入口"
-                    android:textAlignment="center"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -139,8 +125,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_Rankings"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
@@ -149,14 +135,13 @@
 
                 <TextView
                     android:id="@+id/textView_Rankings"
+                    style="@style/BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="排行榜"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,8 +156,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_Playlists"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
@@ -181,14 +166,13 @@
 
                 <TextView
                     android:id="@+id/textView_Playlists"
+                    style="@style/BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="歌单"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -203,8 +187,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_VideoPlayback"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
@@ -213,15 +197,14 @@
 
                 <TextView
                     android:id="@+id/textView_VideoPlayback"
+                    style="@style/BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:minWidth="70dp"
                     android:text="视频播放"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -236,8 +219,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton_TrainingRecords"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/app_name"
@@ -246,14 +229,13 @@
 
                 <TextView
                     android:id="@+id/textView_TrainingRecords"
+                    style="@style/BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="训练记录"
-                    android:textAlignment="center"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
 
@@ -266,13 +248,11 @@
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/Title2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="推荐课程"
-                android:textColor="#403131"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="26dp"
+                android:text="推荐课程" />
 
             <HorizontalScrollView
                 android:id="@+id/ScrollView_course"
@@ -301,12 +281,11 @@
 
                         <TextView
                             android:id="@+id/textView2"
+                            style="@style/SubBodyText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="2dp"
-                            android:text="零基础二胡入门"
-                            android:textSize="13sp" />
-
+                            android:text="零基础二胡入门"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -325,10 +304,10 @@
 
                         <TextView
                             android:id="@+id/textView_Course2"
+                            style="@style/SubBodyText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="零基础古筝教程"
-                            android:textSize="13sp" />
+                            android:text="零基础古筝教程"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -347,10 +326,10 @@
 
                         <TextView
                             android:id="@+id/textView_Course3"
+                            style="@style/SubBodyText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="零基础笛子教程"
-                            android:textSize="13sp" />
+                            android:text="零基础笛子教程"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -369,16 +348,13 @@
 
                         <TextView
                             android:id="@+id/textView_Course4"
+                            style="@style/SubBodyText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="零基础指弹入门"
-                            android:textSize="13sp" />
+                            android:text="零基础指弹入门"/>
                     </LinearLayout>
-
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
-
     </LinearLayout>
-
 </FrameLayout>

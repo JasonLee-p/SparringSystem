@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/spectrumButton"
-        style="@style/ButtonStyle0"
+        style="@style/ButtonStyleTitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/tuningButton"
-        style="@style/ButtonStyle0"
+        style="@style/ButtonStyleTitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"

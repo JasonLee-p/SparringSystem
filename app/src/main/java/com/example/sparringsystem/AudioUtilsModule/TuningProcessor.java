@@ -1,139 +1,97 @@
-// File: com/example/sparringsystem/AudioUtilsModule/TuningProcessor.java
-
 package com.example.sparringsystem.AudioUtilsModule;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.media.AudioFormat;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.core.app.ActivityCompat;
 
-import org.jtransforms.fft.DoubleFFT_1D;
-import org.jtransforms.fft.DoubleFFT_2D;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.example.sparringsystem.AudioUtilsModule.AudioUtils.Spectrogram;
+import com.example.sparringsystem.AudioUtilsModule.AudioUtils.Waveform;
 
 public class TuningProcessor {
 
     public static final String TAG = "TuningProcessor";
-    private AudioRecord audioRecord;
-    private TextView detectedNote;
-    private View waveFontView;
-    private Bitmap gridBitmap;
-    private Canvas canvas = new Canvas();
-    private Bitmap bitmap = Bitmap.createBitmap(1024, 512, Bitmap.Config.ARGB_8888);
-    private BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-    private Paint paint = new Paint();
-    private Drawable waveformDrawable;
-    private TextView frequencyDisplay;
+    public static final int SAMPLE_RATE = 22050;
+    public static final int BUFFER_SIZE = 2048;
 
-    private int bufferSize;
-    private int sampleRate = 44100;
+    private AudioRecord audioRecord;
+
     private boolean isRecording;
+
+    private double noteDetectMinFreq = 27.5;  // A0
+    private double noteDetectMaxFreq = 4186.01;  // C8
+
+    private Waveform waveformHandler;
+    private Spectrogram spectrogramHandler;
     private double currentFreq = 440.0;
     private String currentNote = "A4";
+    private final TuningFragment tuningFragment;
 
-    public TuningProcessor(android.content.Context context, android.app.Activity activity, TextView detectedNote, View keyboardView, TextView frequencyDisplay) {
-        bufferSize = AudioRecord.getMinBufferSize(44100,
-                AudioFormat.CHANNEL_IN_MONO,
-                AudioFormat.ENCODING_PCM_16BIT
-        );
-        Log.d(TAG, "Buffer size: " + bufferSize);
-        this.detectedNote = detectedNote;
-        this.waveFontView = keyboardView;
-        this.frequencyDisplay = frequencyDisplay;
-        paint.setColor(Color.WHITE);
-        paint.setStyle(Paint.Style.FILL);
-        initRecorder(context, activity);
+    public TuningProcessor(TuningFragment fragment) {
+        this.tuningFragment = fragment;
+        this.waveformHandler = new Waveform();
+        this.spectrogramHandler = new Spectrogram();
+        initRecorder(fragment.getContext(), fragment.getActivity());
     }
 
     public void initRecorder(android.content.Context context, android.app.Activity activity) {
-        // 检查权限
         if (!checkPermission(context)) {
-            if (!requestPermission(activity)){
-                return;
-            }
+            requestPermission(activity);
+        } else {
+            initializeAudioRecord();
         }
-        audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
-            sampleRate,
-            AudioFormat.CHANNEL_IN_MONO,
-            AudioFormat.ENCODING_PCM_16BIT,
-            bufferSize
-        );
     }
 
     public boolean checkPermission(android.content.Context context) {
         return ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED;
     }
 
-    public boolean requestPermission(android.app.Activity activity) {
-        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            activity.requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, 1);
-            return ActivityCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED;
-        }
-        return true;
+    public void requestPermission(android.app.Activity activity) {
+        ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.RECORD_AUDIO}, 1);
     }
 
-    private void initGridBitmap() {
-        int width = waveFontView.getWidth();
-        int height = waveFontView.getHeight();
-        if (width == 0 || height == 0) {
-            Log.e(TAG, "ImageView has no size");
-            return;
+    @SuppressLint("MissingPermission")
+    private void initializeAudioRecord() {
+        try {
+            audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                    SAMPLE_RATE,
+                    AudioFormat.CHANNEL_IN_MONO,
+                    AudioFormat.ENCODING_PCM_16BIT,
+                    BUFFER_SIZE
+            );
+
+            if (audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
+                Log.e(TAG, "AudioRecord initialization failed");
+                return;
+            }
+
+            audioRecord.setRecordPositionUpdateListener(new AudioRecord.OnRecordPositionUpdateListener() {
+                @Override
+                public void onMarkerReached(AudioRecord recorder) {
+                }
+
+                @Override
+                public void onPeriodicNotification(AudioRecord recorder) {
+                    short[] buffer = new short[BUFFER_SIZE];
+                    int read = audioRecord.read(buffer, 0, buffer.length);
+                    if (read > 0) {
+                        processBuffer(buffer);
+                    }
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, "Error initializing AudioRecord", e);
         }
-        gridBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        gridBitmap.eraseColor(Color.BLACK);
-        Canvas _canvas = new Canvas(gridBitmap);
-
-        Paint gridPaint = new Paint();
-        gridPaint.setColor(Color.LTGRAY);
-        gridPaint.setStrokeWidth(1);
-
-        // 计算八度频率点
-        double baseFrequency = 440.0; // 基准频率为440Hz
-        double minFrequency = 27.5;   // 起始频率为A0
-        double maxFrequency = 4186.0; // 最高频率为C8
-
-        List<Integer> octavePositions = new ArrayList<>();
-        for (double freq = minFrequency; freq <= maxFrequency; freq *= 2) {
-            int x = (int) ((Math.log(freq / minFrequency) / Math.log(maxFrequency / minFrequency)) * width);
-            octavePositions.add(x);
-        }
-
-        // 绘制八度网格线
-        for (int x : octavePositions) {
-            _canvas.drawLine(x, 0, x, height, gridPaint);
-        }
-
-        for (int y = 0; y < height; y += 10) {
-            _canvas.drawLine(0, y, width, y, gridPaint);
-        }
-    }
-
-    public void bitMapResize(int width, int height) {
-        if (bitmap.getWidth() == width && bitmap.getHeight() == height) {
-            return;
-        }
-        bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        paint = new Paint();
     }
 
     public void startTuning() {
-        if (audioRecord == null) {
+        if (audioRecord == null || audioRecord.getState() != AudioRecord.STATE_INITIALIZED) {
             Log.e(TAG, "AudioRecord is not initialized");
             return;
         }
@@ -143,38 +101,73 @@ public class TuningProcessor {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                short[] buffer = new short[bufferSize];
+                short[] buffer = new short[BUFFER_SIZE];
                 while (isRecording) {
-                    int read = audioRecord.read(buffer, 0, buffer.length);
-                    if (read > 0) {
-                        processBuffer(buffer);
+                    synchronized (audioRecord) {
+                        int read = audioRecord.read(buffer, 0, buffer.length);
+                        if (read > 0) {
+                            processBuffer(buffer);
+                        }
                     }
                 }
             }
         }).start();
     }
 
+    private void processBuffer(short[] buffer) {
+        // 计算RMS值
+        double rms = calculateRMS(buffer);
+        // 将RMS值转换为dB值
+        double db = 20 * Math.log10(rms);
+
+        spectrogramHandler.resize(tuningFragment.spectrumView.getWidth(), tuningFragment.spectrumView.getHeight());
+        waveformHandler.resize(tuningFragment.waveformView.getWidth(), tuningFragment.waveformView.getHeight());
+        Bitmap spectrogramBitmap = spectrogramHandler.getSpectrogramBitmap(buffer);
+        double[] doubleBuffer = spectrogramHandler.getStftResult()[0];
+        currentFreq = detectFreq(doubleBuffer);
+        currentNote = convertMidiToNoteName(convertFreqToMidi(currentFreq));
+        Bitmap waveformBitmap = waveformHandler.getWaveformBitmap(buffer, db);
+
+        // 更新UI
+        tuningFragment.updateValues(db, waveformBitmap, spectrogramBitmap, currentNote, currentFreq);
+    }
+
     public void stopTuning() {
         isRecording = false;
-        audioRecord.stop();
+        if (audioRecord != null) {
+            try {
+                audioRecord.stop();
+                audioRecord.release();
+            } catch (Exception e) {
+                Log.e(TAG, "Error stopping AudioRecord", e);
+            }
+        }
     }
 
-    // Placeholder method for pitch detection
-    private double detectPitch(short[] buffer) {
-        // Implement pitch detection algorithm here
-        return 440.0;
+    private double calculateRMS(short[] buffer) {
+        double sum = 0;
+        for (short sample : buffer) {
+            sum += sample * sample;
+        }
+        double mean = sum / buffer.length;
+        return Math.sqrt(mean);
     }
 
-    private void processBuffer(short[] buffer) {
-        // 渲染波形并显示
-        renderWaveform(buffer);
-        // 检测音高
-        currentFreq = detectPitch(buffer);
-        // 转化为文字
-        int midiNum = convertFreqToMidi(currentFreq);
-        currentNote = convertMidiToNoteName(midiNum);
-        // 通知UI更新
-        updateUI();
+    private double detectFreq(double[] fftResult) {
+        double maxFreq = 0;
+        double maxAmp = 0;
+        for (int i = 0; i < fftResult.length / 2; i++) {
+            double freq = i * SAMPLE_RATE / fftResult.length;
+            if (freq < noteDetectMinFreq || freq > noteDetectMaxFreq) {
+                continue;
+            }
+            double amp = Math.sqrt(fftResult[2 * i] * fftResult[2 * i] + fftResult[2 * i + 1] * fftResult[2 * i + 1]);
+            if (amp > maxAmp) {
+                maxAmp = amp;
+                maxFreq = freq;
+            }
+        }
+        return maxFreq;
     }
 
     private int convertFreqToMidi(double freq) {
@@ -186,76 +179,11 @@ public class TuningProcessor {
         return noteNames[midiNum % 12] + (midiNum / 12 - 1);
     }
 
-    private void renderWaveform(short[] buffer) {
-        if (waveFontView == null || gridBitmap == null) {
-            initGridBitmap();
-            Log.e(TAG, "ImageView is not initialized");
-            return;
-        }
-        int width = waveFontView.getWidth();
-        int height = waveFontView.getHeight();
-        bitMapResize(width, height);
-        canvas = new Canvas();
-        canvas.setBitmap(bitmap);
-        canvas.drawBitmap(gridBitmap, 0, 0, paint);
-
-        double[] waveform = new double[buffer.length];
-        for (int i = 0; i < buffer.length; i++) {
-            waveform[i] = buffer[i];
-        }
-        DoubleFFT_1D fft = new DoubleFFT_1D(buffer.length);
-        fft.realForward(waveform);
-        Path waveformPath = new Path();
-        waveformPath.moveTo(0, height);
-        for (int i = 0; i < buffer.length / 2; i++) {
-            double magnitude = Math.sqrt(waveform[2 * i] * waveform[2 * i] + waveform[2 * i + 1] * waveform[2 * i + 1]);
-            double x = (double) i / buffer.length * width;
-            double y = height - magnitude * height;
-            waveformPath.lineTo((float) x, (float) y);
-        }
-
-
-
-        waveformPath.lineTo(width, height);
-        waveformPath.close();
-        canvas.drawPath(waveformPath, paint);
-
-        // 设置Bitmap到waveformDrawable
-        waveformDrawable = new BitmapDrawable(waveFontView.getResources(), bitmap);
-        // 通知主线程更新UI
-        waveFontView.post(new Runnable() {
-            @Override
-            public void run() {
-                waveFontView.setBackground(waveformDrawable);
-                waveFontView.invalidate();
-            }
-        });
+    public double getCurrentFreq() {
+        return currentFreq;
     }
 
-
-    private void updateUI() {
-        if (detectedNote == null || frequencyDisplay == null) {
-            Log.e(TAG, "TextView is not initialized");
-            return;
-        }
-        // 在协程中更新UI
-        detectedNote.post(new Runnable() {
-            @Override
-            public void run() {
-                detectedNote.setText(currentNote);
-                detectedNote.invalidate();
-            }
-        });
-        frequencyDisplay.post(new Runnable() {
-            @Override
-            public void run() {
-                frequencyDisplay.setText(String.format("%.2f Hz", currentFreq));
-                frequencyDisplay.invalidate();
-            }
-        });
-    }
-
-    public Drawable getWaveformDrawable() {
-        return waveformDrawable;
+    public String getCurrentNote() {
+        return currentNote;
     }
 }

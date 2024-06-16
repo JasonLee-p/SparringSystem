@@ -17,10 +17,11 @@
     <color name="dark_blue">#FF000088</color>
     <item name="yellow_to_white_gradient" type="drawable">
         <shape>
-            <gradient
-                startColor="@color/bg_color2"
-                endColor="@color/white"
-                type="linear" />
+            <gradient endColor="@color/white" startColor="@color/bg_color2" type="linear" />
         </shape>
     </item>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 </resources>

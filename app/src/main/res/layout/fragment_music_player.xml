@@ -4,47 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom|center"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:padding="16dp"
     tools:context=".PracticeModule.MusicPlayerFragment">
 
-    <!-- Song Information -->
-    <TextView
-        android:id="@+id/song_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+    <!-- Centered Content -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:text="未知歌曲"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/song_artist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="未知艺术家"
-        android:textSize="18sp" />
+        <!-- Song Information -->
 
-    <!-- Album Image -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="256dp"
-        android:layout_height="256dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="35dp">
+        <TextView
+            android:id="@+id/song_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="未知歌曲"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/album_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/unknown_album" />
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/song_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="未知艺术家"
+            android:textSize="18sp" />
+
+        <!-- Album Image -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="35dp">
+
+            <ImageView
+                android:id="@+id/album_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/unknown_album" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <!-- SeekBar and Time -->
+
+    <TextView
+        android:id="@+id/lyrics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="无歌词"
+        android:textSize="14sp" />
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
@@ -76,14 +98,6 @@
     </LinearLayout>
 
     <!-- Lyrics -->
-    <TextView
-        android:id="@+id/lyrics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="无歌词"
-        android:textSize="14sp" />
 
     <!-- Control Buttons -->
     <LinearLayout

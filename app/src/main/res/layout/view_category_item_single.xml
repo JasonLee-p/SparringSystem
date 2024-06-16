@@ -19,12 +19,10 @@
 
         <TextView
             android:id="@+id/category_name"
+            style="@style/BodyText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textSize="15sp"
-            android:textColor="@color/fg_color1"
-            android:textStyle="normal" />
+            android:gravity="center"/>
     </LinearLayout>
 </FrameLayout>

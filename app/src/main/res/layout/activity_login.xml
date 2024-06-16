@@ -11,66 +11,68 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:src="@drawable/icon"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome_text"
+        style="@style/Title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Hello!"
-        android:textColor="@color/fg_color1"
-        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <TextView
         android:id="@+id/subtitle_text"
+        style="@style/Title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="欢迎来到弦轨"
-        android:textColor="@color/fg_color1"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 
     <EditText
         android:id="@+id/phone_number_edit"
+        style="@style/BodyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:hint="请输入手机号码"
         android:inputType="phone"
-        android:padding="12dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtitle_text"
-        app:layout_constraintWidth_percent="0.8" />
+        app:layout_constraintWidth_percent="0.8"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/verification_code_edit"
+        style="@style/BodyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="请输入验证码"
         android:inputType="number"
-        android:padding="12dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone_number_edit"
-        app:layout_constraintWidth_percent="0.8" />
+        app:layout_constraintWidth_percent="0.8"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/login_button"
         android:text="登录"
-        style="@style/ButtonStyle0"
+        style="@style/ButtonStyleTitle3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verification_code_edit"
@@ -88,43 +90,40 @@
 
         <TextView
             android:id="@+id/forgot_password"
+            style="@style/SubBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="忘记密码？"
-            android:textColor="@color/fg_color0"
-            android:textSize="14sp" />
+            android:text="忘记密码？"/>
 
         <TextView
             android:id="@+id/forgot_password2"
+            style="@style/BodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="|"
-            android:textColor="@color/fg_color0"
-            android:textSize="20sp" />
+            android:text="|"/>
 
         <TextView
             android:id="@+id/new_user"
+            style="@style/SubBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="新用户注册 >"
-            android:textColor="@color/fg_color0"
-            android:textSize="14sp" />
+            android:text="新用户注册 >"/>
     </LinearLayout>
 
     <CheckBox
         android:id="@+id/terms_checkbox"
+        style="@style/SubBodyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我已阅读并同意《用户协议》与《隐私政策》"
-        android:textSize="12sp"
         android:layout_marginTop="55dp"
         app:layout_constraintTop_toBottomOf="@+id/login_button"
         app:layout_constraintStart_toStartOf="parent"

@@ -13,5 +13,9 @@
     <string name="tuning_meter">tuning_meter</string>
     <string name="settings">设置</string>
     <string name="keyboard">键盘</string>
+    <string name="volume_icon">volume_icon</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

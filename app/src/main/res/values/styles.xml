@@ -1,10 +1,89 @@
 <resources>
-    <style name="ButtonStyle0">
+
+    <style name="ButtonStyleTitle1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:backgroundTint">@color/bg_color2</item>
+        <item name="android:textColor">@color/fg_color1</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="ButtonStyleTitle2">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:backgroundTint">@color/bg_color2</item>
         <item name="android:textColor">@color/fg_color1</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ButtonStyleTitle3">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:backgroundTint">@color/bg_color2</item>
+        <item name="android:textColor">@color/fg_color1</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="ButtonStyleBody">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:backgroundTint">@color/bg_color2</item>
+        <item name="android:textColor">@color/fg_color0</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- Title 1 Style -->
+    <style name="Title1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fg_color1</item>
+    </style>
+
+    <!-- Title 2 Style -->
+    <style name="Title2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fg_color1</item>
+    </style>
+
+    <!-- Title 3 Style -->
+    <style name="Title3">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fg_color1</item>
+    </style>
+
+    <!-- Body Text Style -->
+    <style name="BodyText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/fg_color0</item>
+    </style>
+
+    <!-- Inactive Body Text Style -->
+    <style name="InactiveBodyText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <!-- SubBodyText Style -->
+    <style name="SubBodyText">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="Widget.SparringSystem.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.SparringSystem.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 </resources>
