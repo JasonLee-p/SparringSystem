@@ -85,7 +85,7 @@ public class MusicPlayerFragment extends Fragment {
             albumImage = view.findViewById(R.id.album_image);
 
             if (playPauseButton == null || previousButton == null || nextButton == null || seekBar == null || currentTime == null || totalTime == null || lyricsView == null || songTitle == null || songArtist == null || albumImage == null) {
-                Log.e(TAG, "One or more views are null. Check the layout file for correct IDs.");
+                Log.e(TAG, "多个控件是 null，无法初始化");
                 return;
             }
 
@@ -164,6 +164,14 @@ public class MusicPlayerFragment extends Fragment {
     }
 
     private void updateSeekBar() {
+        if (musicPlayer == null) {
+            Log.e(TAG, "Music player 是 null");
+            return;
+        }
+        if (seekBar == null) {
+            Log.e(TAG, "Seek bar 是 null");
+            return;
+        }
         seekBar.setMax(musicPlayer.getDuration());
         updateSeekBar = new Runnable() {
             @Override
